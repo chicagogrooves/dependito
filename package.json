@@ -1,29 +1,29 @@
 {
     "name": "dependito",
-    "version": "0.1.3",
+    "version": "0.1.9",
     "author": "Dean Radcliffe <dradcliffe@opinionlab.com>",
     "repository": "https://github.com/chicagogrooves/dependito.git",
     "homepage": "https://github.com/chicagogrooves/dependito.git",
-    "licenses": [
-        {
-            "type": "MIT"
-  }
-  ],
-    "description": "Visualize your CommonJS or AMD module dependencies.",
+    "licenses": [{
+        "type": "MIT"
+    }],
+    "description": "Visualize your CommonJS or AMD module dependencies, and how they change.",
     "keywords": [
-    "AMD",
-    "RequireJS",
-    "require",
-    "module",
-    "circular",
-    "dependency",
-    "dependencies",
-    "visualize",
-    "D3"
-  ],
+        "AMD",
+        "RequireJS",
+        "require",
+        "module",
+        "circular",
+        "dependency",
+        "dependencies",
+        "visualize",
+        "evolution",
+        "evolving software",
+        "D3"
+    ],
     "engines": [
-    "node >= 0.8.0"
-  ],
+        "node >= 0.8.0"
+    ],
     "dependencies": {
         "commander": "1.0.0",
         "madge": "0.3.1",
