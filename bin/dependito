@@ -10,8 +10,9 @@ var fs = require('fs');
 Commander
   .version(Version)
   .usage('[options] <file|dir ...>')
-  .option('-f, --format <name>', 'format to parse (amd/cjs)', 'amd')
+  .option('-f, --format <name>', 'format to parse (amd/cjs/json)', 'amd')
   .option('-r, --recent <filename>', 'a json file of recent updates')
+  .option('-d, --deps <filename>', 'when used with \'-f json\', a file to load deps from in {p1:[\'c1\',\'c2\']} format')
   .option('-x, --exclude <regex>', 'a regular expression for excluding modules')
   .parse(process.argv);
 
@@ -23,11 +24,14 @@ if (!Commander.args.length) {
 var src = Commander.args[0];
 
 var recentUpdates = fs.existsSync(Commander.recent) && JSON.parse(fs.readFileSync(Commander.recent));
+var directDeps = Commander.format==='json' && fs.existsSync(Commander.deps) && JSON.parse(fs.readFileSync(Commander.deps));
+
 // Fire up Dependito
 var Dependito = new Dependito(src, {
   format: Commander.format,
   exclude: Commander.exclude,
-  recentUpdates: (recentUpdates || {})
+  recentUpdates: (recentUpdates || {}),
+  directDeps: directDeps
 });
 
 var html = Dependito.generateHtml();
