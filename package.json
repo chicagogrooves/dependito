@@ -1,6 +1,6 @@
 {
     "name": "dependito",
-    "version": "0.1.9",
+    "version": "0.2.0",
     "author": "Dean Radcliffe <dradcliffe@opinionlab.com>",
     "repository": "https://github.com/chicagogrooves/dependito.git",
     "homepage": "https://github.com/chicagogrooves/dependito.git",
@@ -29,8 +29,8 @@
         "madge": "0.3.1",
         "underscore": "~1.4.4"
     },
-    "main": "./lib/dependo",
+    "main": "./lib/dependito",
     "bin": {
-        "dependo": "./bin/dependo"
+        "dependito": "./bin/dependito"
     }
 }

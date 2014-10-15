@@ -4,7 +4,7 @@
 
 var Version = require('../lib/version');
 var Commander = require('commander');
-var Dependo = require('../lib/dependo');
+var Dependito = require('../lib/Dependito');
 var fs = require('fs');
 
 Commander
@@ -23,13 +23,13 @@ if (!Commander.args.length) {
 var src = Commander.args[0];
 
 var recentUpdates = fs.existsSync(Commander.recent) && JSON.parse(fs.readFileSync(Commander.recent));
-// Fire up Dependo
-var dependo = new Dependo(src, {
+// Fire up Dependito
+var Dependito = new Dependito(src, {
   format: Commander.format,
   exclude: Commander.exclude,
   recentUpdates: (recentUpdates || {})
 });
 
-var html = dependo.generateHtml();
+var html = Dependito.generateHtml();
 
 process.stdout.write(html);
