@@ -35,6 +35,26 @@ To install the command-line tool:
 
     $ sudo npm -g install dependito
 
+
+CLI
+---
+    Usage: dependito [options] <file|dir ...>
+
+    Options:
+
+        -h, --help               output usage information
+        -V, --version            output the version number
+        -f, --format <name>      format to parse (amd/cjs/json)
+        -t, --title <title>      title of generated document
+        -r, --recent <filename>  a json file of recent updates
+        -v, --reverse            reverse direction of arrows
+        -d, --deps <filename>    when used with '-f json', a file to load deps from in {p1:['c1','c2']} format
+        -x, --exclude <regex>    a regular expression for excluding modules
+
+### Generate AMD report to doc/require.html
+
+    $ dependito -f amd /path/src > doc/require.html
+
 API
 ---
 ```JavaScript
@@ -57,21 +77,6 @@ API
   dependito.generateHtml();
   ...
 ```
-
-CLI
----
-    Usage: dependito [options] <file|dir ...>
-
-    Options:
-
-      -h, --help             output usage information
-      -V, --version          output the version number
-      -f, --format <name>    format to parse (amd/cjs)
-      -x, --exclude <regex>  a regular expression for excluding modules
-
-### Generate HTML report of all module dependencies (AMD), and save it to /example/report.html
-
-    $ dependito -f amd /path/src > example/report.html
 
 Roadmap
 -------
