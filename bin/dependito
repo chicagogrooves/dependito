@@ -7,6 +7,7 @@ var Commander = require('commander');
 var Dependito = require('../lib/Dependito');
 var fs = require('fs');
 var _ = require('underscore')._;
+var jsYaml = require('js-yaml');
 
 Commander
   .version(Version)
@@ -32,9 +33,24 @@ var directDeps;
 if (Commander.format==='json' && fs.existsSync(Commander.deps)){
     directDeps = JSON.parse(fs.readFileSync(Commander.deps));
 } else if (Commander.format==='fig' && fs.existsSync(Commander.figFile)){
-    directDeps = {}; //TODO yaml parse it
+    directDeps = getFiggyDeps(Commander.figFile);
 }
-var reverse_transformer = function(tree){
+
+// Fire up Dependito
+var dependito = new Dependito(src, {
+  cliOptions: Commander,
+  recentUpdates: (recentUpdates || {}),
+  directDeps: directDeps,
+  transform: Commander.reverse ? reverse_transformer : undefined
+});
+
+var html = dependito.generateHtml();
+process.stdout.write(html);
+
+
+
+// Utilities
+function reverse_transformer (tree){
     var dual = {};
     _.each(tree, function(targets, source) {
       return _.each(targets, function(t) {
@@ -48,14 +64,15 @@ var reverse_transformer = function(tree){
     return dual;
 };
 
-// Fire up Dependito
-var dependito = new Dependito(src, {
-  cliOptions: Commander,
-  recentUpdates: (recentUpdates || {}),
-  directDeps: directDeps,
-  transform: Commander.reverse ? reverse_transformer : undefined
-});
+function getFiggyDeps(figFile) {
 
-var html = dependito.generateHtml();
+    var doc = jsYaml.safeLoad(fs.readFileSync(figFile, 'utf8'));
 
-process.stdout.write(html);
+    var returnObj = {};
+
+    _.each(doc, function (value, key, list) {
+        returnObj[key] = value.links || [];
+    });
+
+    return returnObj;
+}
