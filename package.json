@@ -1,7 +1,8 @@
 {
     "name": "dependito",
-    "version": "0.3.4",
-    "author": ["Dean Radcliffe <dradcliffe@opinionlab.com>", "Travis Tillotson <ttillotson@opinionlab.com>"],
+    "version": "0.3.5",
+    "author": "Dean Radcliffe <dradcliffe@opinionlab.com>",
+    "contributors": ["Travis Tillotson <ttillotson@opinionlab.com>"],
     "repository": "https://github.com/chicagogrooves/dependito.git",
     "homepage": "https://github.com/chicagogrooves/dependito.git",
     "licenses": [{
