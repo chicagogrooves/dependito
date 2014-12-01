@@ -11,11 +11,12 @@ var _ = require('underscore')._;
 Commander
   .version(Version)
   .usage('[options] <file|dir ...>')
-  .option('-f, --format <name>', 'format to parse (amd/cjs/json)', 'amd')
+  .option('-f, --format <name>', 'format to parse (amd/cjs/json/fig)', 'amd')
   .option('-t, --title <title>', 'title of generated document', 'Dependito')
   .option('-r, --recent <filename>', 'a json file of recent updates')
   .option('-v, --reverse', 'reverse direction of arrows', false)
   .option('-d, --deps <filename>', 'when used with \'-f json\', a file to load deps from in {p1:[\'c1\',\'c2\']} format')
+  .option('-y, --figFile <filename>', 'when used with \'-f fig\', a fig-format yaml file')
   .option('-x, --exclude <regex>', 'a regular expression for excluding modules')
   .parse(process.argv);
 
@@ -27,7 +28,12 @@ if (!Commander.args.length) {
 var src = Commander.args[0];
 
 var recentUpdates = fs.existsSync(Commander.recent) && JSON.parse(fs.readFileSync(Commander.recent));
-var directDeps = Commander.format==='json' && fs.existsSync(Commander.deps) && JSON.parse(fs.readFileSync(Commander.deps));
+var directDeps;
+if (Commander.format==='json' && fs.existsSync(Commander.deps)){
+    directDeps = JSON.parse(fs.readFileSync(Commander.deps));
+} else if (Commander.format==='fig' && fs.existsSync(Commander.figFile)){
+    directDeps = {}; //TODO yaml parse it
+}
 var reverse_transformer = function(tree){
     var dual = {};
     _.each(tree, function(targets, source) {
