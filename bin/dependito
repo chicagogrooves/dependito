@@ -41,27 +41,25 @@ var dependito = new Dependito(src, {
   cliOptions: Commander,
   recentUpdates: (recentUpdates || {}),
   directDeps: directDeps,
-  transform: Commander.reverse ? reverse_transformer : undefined
+  transform: Commander.reverse ? converse_transformer : undefined
 });
 
 var html = dependito.generateHtml();
 process.stdout.write(html);
 
-
-
 // Utilities
-function reverse_transformer (tree){
-    var dual = {};
+function converse_transformer (tree){
+    var converse = {};
     _.each(tree, function(targets, source) {
       return _.each(targets, function(t) {
-        if (!dual[t]) {
-          return dual[t] = [source];
+        if (!converse[t]) {
+          return converse[t] = [source];
         } else {
-          return dual[t].unshift(source);
+          return converse[t].unshift(source);
         }
       });
     });
-    return dual;
+    return converse;
 };
 
 function getFiggyDeps(figFile) {
