@@ -5,6 +5,7 @@
 var Version = require('../lib/version');
 var Commander = require('commander');
 var Dependito = require('../lib/Dependito');
+var converse = require('../lib/converse');
 var fs = require('fs');
 var _ = require('underscore')._;
 var jsYaml = require('js-yaml');
@@ -41,26 +42,11 @@ var dependito = new Dependito(src, {
   cliOptions: Commander,
   recentUpdates: (recentUpdates || {}),
   directDeps: directDeps,
-  transform: Commander.reverse ? converse_transformer : undefined
+  transform: Commander.reverse ? converse : undefined
 });
 
 var html = dependito.generateHtml();
 process.stdout.write(html);
-
-// Utilities
-function converse_transformer (tree){
-    var converse = {};
-    _.each(tree, function(targets, source) {
-      return _.each(targets, function(t) {
-        if (!converse[t]) {
-          return converse[t] = [source];
-        } else {
-          return converse[t].unshift(source);
-        }
-      });
-    });
-    return converse;
-};
 
 function getFiggyDeps(figFile) {
 
