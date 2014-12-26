@@ -7,6 +7,10 @@
   </head>
 
   <body>
+    <div class="stats" style="display:none">
+      <div class="chart graph1">
+      </div>
+    </div>
     <div class="graph">
       <div class="control-zoom">
           <a class="control-zoom-in" href="#" title="Zoom in"></a>
@@ -28,7 +32,9 @@
       recentUpdates = {{recentUpdates}};
 
       {{showUpdates}}
-    </script>
 
+      var statsData1 = {{statsData}};
+      {{showStats}}
+    </script>
   </body>
 </html>

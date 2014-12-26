@@ -107,3 +107,26 @@
   .treediff-children-changed {
     fill: #ff9;
   }
+
+  .stats {
+    position: absolute;
+    right: 0px;
+    border: 1px solid steelblue;
+    width: 10em;
+    height: 10em;
+    z-index: 100;
+    opacity: 90%;
+  }
+  .chart div {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+
+    position:relative;
+  }
+  .graph1 {
+    -webkit-transform: rotate(-90deg);
+  }

@@ -16,6 +16,7 @@ Commander
   .option('-f, --format <name>', 'format to parse (amd/cjs/json/fig)', 'amd')
   .option('-t, --title <title>', 'title of generated document', 'Dependito')
   .option('-r, --recent <filename>', 'a json file of recent updates')
+  .option('-s, --stats', 'display histograms of statistics', false)
   .option('-v, --reverse', 'reverse direction of arrows', false)
   .option('-d, --deps <filename>', 'when used with \'-f json\', a file to load deps from in {p1:[\'c1\',\'c2\']} format')
   .option('-y, --figFile <filename>', 'when used with \'-f fig\', a fig-format yaml file')
