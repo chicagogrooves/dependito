@@ -112,8 +112,8 @@
     position: absolute;
     right: 0px;
     border: 1px solid steelblue;
-    width: 10em;
-    height: 10em;
+    width: 120px;
+    height: 120px;
     z-index: 100;
     opacity: 90%;
   }
@@ -128,5 +128,5 @@
     position:relative;
   }
   .graph1 {
-    -webkit-transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg) translate(-15px, -15px);
   }
