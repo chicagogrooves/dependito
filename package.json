@@ -1,6 +1,6 @@
 {
     "name": "dependito",
-    "version": "0.3.5",
+    "version": "0.3.6",
     "author": "Dean Radcliffe <dradcliffe@opinionlab.com>",
     "contributors": ["Travis Tillotson <ttillotson@opinionlab.com>"],
     "repository": "https://github.com/chicagogrooves/dependito.git",
@@ -16,6 +16,7 @@
         "module",
         "circular",
         "dependency",
+        "dependency graph",
         "dependencies",
         "visualize",
         "evolution",

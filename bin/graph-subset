@@ -1,0 +1,23 @@
+#!/usr/local/bin/node
+// node graph-subset 'moduleRoot' depsFile.json > subset.json
+
+var fs = require('fs');
+var _ = require('underscore');
+
+var moduleRoot = process.argv[2];
+var depsFileContents = fs.readFileSync(process.argv[3], {encoding: 'UTF-8'})
+var depsOriginal = JSON.parse(depsFileContents);
+
+var depsSubset = {};
+
+var getDepsForModule = function(module){
+  //weve been here before
+  if(depsSubset[module]) return;
+
+  var immediateDeps = depsOriginal[module];
+  depsSubset[module] = immediateDeps;
+  _.each(immediateDeps, getDepsForModule);
+}
+
+getDepsForModule(moduleRoot);
+process.stdout.write( JSON.stringify(depsSubset) + "\n");

@@ -23,9 +23,13 @@ Commander
   .option('-x, --exclude <regex>', 'a regular expression for excluding modules')
   .parse(process.argv);
 
-if (!Commander.args.length) {
-  console.log(Commander.helpInformation());
-  process.exit(1);
+if (Commander.format==="json" || Commander.figFile) {
+  //we don't need a commandline arg
+} else {
+  if (!Commander.args.length) {
+    console.log(Commander.helpInformation());
+    process.exit(1);
+  }
 }
 
 var src = Commander.args[0];

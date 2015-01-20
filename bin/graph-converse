@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-
+# TODO rewrite in JS
 require 'json'
 obj = JSON.parse $stdin.read
 
