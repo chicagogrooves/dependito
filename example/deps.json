@@ -1,0 +1,22 @@
+{
+    "one-finger-1-first-song": [],
+    "one-finger-transposition": ["one-finger-1-first-song"],
+    "one-finger-order": ["one-finger-1-first-song"],
+    "minor-chords-open": ["one-finger-1-first-song"],
+    "minor-major-open": ["minor-chords-open"],
+    "d7-chord": ["one-finger-1-first-song"],
+    "cowboy-chords": ["d7-chord"],
+    "four-finger-minor-chords": ["minor-major-open", "cowboy-chords"],
+    "four-finger-major-chords": ["cowboy-chords"],
+    "all-major-all-minor-chords": ["four-finger-major-chords", "four-finger-minor-chords"],
+    "sus4": ["minor-major-open"],
+    "diminished-chord": ["sus4"],
+    "pinky-7th-chord": ["diminished-chord"],
+    "all-7th-chords": ["pinky-7th-chord", "all-major-all-minor-chords"],
+    "9th-substitution": ["all-7th-chords"],
+    "picking-style-intro": ["one-finger-1-first-song"],
+    "pluck-with-mute-and-string-shift": ["picking-style-intro"],
+    "thumb-box-picking": ["picking-style-intro"],
+    "clawhammer-picking": ["picking-style-intro"],
+    "hammer-on-intro-banjo-lick": ["picking-style-intro"]
+}

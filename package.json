@@ -35,5 +35,8 @@
     "main": "./lib/dependito",
     "bin": {
         "dependito": "./bin/dependito"
+    },
+    "scripts": {
+      "test": "./bin/dependito -v -f json -d example/deps.json -s > example/stats.html; open example/stats.html"
     }
 }
