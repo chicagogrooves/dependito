@@ -1,0 +1,1 @@
+Dependito = Npm.require("dependito")
