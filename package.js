@@ -1,7 +1,7 @@
 Package.describe({
   name: "deanius:dependito",
   summary: "Visualize your application's dependency structure",
-  version: "0.0.2",
+  version: "0.0.3",
   git: "https://github.com/deanius/meteor-dependito.git"
 });
 
