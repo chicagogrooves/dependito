@@ -1,9 +1,9 @@
 {
   "name": "dependo",
-  "version": "0.1.6",
-  "author": "Kenneth Auchecnberg <kenneth@auchenberg.dk>",
-  "repository": "https://github.com/auchenberg/dependo.git",
-  "homepage": "https://github.com/auchenberg/dependo.git",
+  "version": "0.1.7",
+  "author": "Dean Radcliffe <dean@deanius.com>",
+  "repository": "https://github.com/deanius/dependito.git",
+  "homepage": "https://github.com/deanius/dependito.git",
   "licenses": [
     {
       "type": "MIT"
