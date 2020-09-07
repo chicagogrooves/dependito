@@ -1,0 +1,10 @@
+{
+  "user/search": ["goog/msg/header"],
+  "goog/msg/header": ["goog/msg/body"],
+  "goog/msg/body": ["goog/att/id"],
+  "goog/att/id": ["net/att/start"],
+  "net/att/start": ["net/att/finish"],
+  "net/att/finish": ["net/att/start", "player/play"],
+  "player/play": ["player/complete"],
+  "player/complete": ["player/play"]
+}
